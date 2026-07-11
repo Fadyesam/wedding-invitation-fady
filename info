@@ -1,0 +1,22 @@
+wedding-invitation/
+│
+├── index.html
+├── css/
+│   └── style.css
+├── js/
+│   └── app.js
+├── assets/
+│   ├── music.mp3
+│   ├── hero.jpg
+│   ├── fady-child.jpg
+│   ├── simon-child.jpg
+│   ├── school-love.jpg
+│   ├── graduation.jpg
+│   ├── engagement.jpg
+│   ├── army.jpg
+│   ├── ta-appointment.jpg
+│   ├── work.jpg
+│   ├── couple-1.jpg
+│   ├── couple-2.jpg
+│   └── couple-3.jpg
+└── favicon.png

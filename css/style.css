@@ -1,0 +1,275 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Cairo',sans-serif;
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Loader */
+
+#loader{
+    position:fixed;
+    inset:0;
+    background:#050816;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    transition:1s;
+}
+
+#loader h1{
+    color:#d4af37;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+#loader.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+/* Stars */
+
+#stars{
+    position:fixed;
+    inset:0;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px,#fff,transparent),
+        radial-gradient(2px 2px at 40px 70px,#fff,transparent),
+        radial-gradient(1px 1px at 90px 40px,#fff,transparent),
+        radial-gradient(2px 2px at 150px 80px,#fff,transparent),
+        radial-gradient(2px 2px at 220px 120px,#fff,transparent);
+    background-repeat:repeat;
+    background-size:300px 300px;
+    animation:moveStars 120s linear infinite;
+    opacity:.4;
+    z-index:-1;
+}
+
+@keyframes moveStars{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-1000px);
+    }
+}
+
+/* Music */
+
+#musicBtn{
+    position:fixed;
+    left:20px;
+    top:20px;
+    z-index:100;
+    border:none;
+    padding:12px 18px;
+    border-radius:30px;
+    background:#d4af37;
+    color:#000;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* Hero */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.book-cover{
+    width:90%;
+    max-width:700px;
+    background:rgba(255,255,255,.05);
+    border:2px solid #d4af37;
+    border-radius:30px;
+    padding:60px 30px;
+    text-align:center;
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 40px rgba(212,175,55,.2);
+}
+
+.book-cover h1{
+    font-family:'Cinzel',serif;
+    color:#d4af37;
+    font-size:3rem;
+}
+
+.book-cover h2{
+    margin-top:10px;
+    color:#fff;
+}
+
+.book-cover h3{
+    margin-top:40px;
+    line-height:2;
+}
+
+.book-cover p{
+    margin-top:30px;
+    color:#ccc;
+    line-height:2;
+}
+
+#openBook{
+    margin-top:40px;
+    padding:15px 35px;
+    border:none;
+    background:#d4af37;
+    color:#000;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:18px;
+    font-weight:bold;
+}
+
+/* Book */
+
+.hidden{
+    display:none;
+}
+
+.page{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:80px 20px;
+    text-align:center;
+}
+
+.page h1{
+    color:#d4af37;
+    margin-bottom:40px;
+    font-size:2.5rem;
+}
+
+.page p{
+    max-width:800px;
+    line-height:2;
+    font-size:1.2rem;
+    margin-top:20px;
+}
+
+.images{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.images img,
+.gallery img,
+.main-image{
+    width:300px;
+    max-width:90%;
+    border-radius:20px;
+    border:3px solid #d4af37;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+.gallery{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.countdown{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin:50px 0;
+}
+
+.countdown div{
+    background:rgba(255,255,255,.08);
+    padding:20px;
+    border-radius:20px;
+    min-width:120px;
+    border:1px solid #d4af37;
+}
+
+.countdown span{
+    display:block;
+    font-size:40px;
+    color:#d4af37;
+}
+
+.card{
+    width:90%;
+    max-width:700px;
+    background:rgba(255,255,255,.05);
+    margin:20px 0;
+    padding:30px;
+    border-radius:25px;
+    border:1px solid rgba(212,175,55,.5);
+}
+
+.card h3{
+    color:#d4af37;
+    margin-bottom:20px;
+}
+
+.card a{
+    display:inline-block;
+    margin-top:20px;
+    background:#d4af37;
+    color:black;
+    text-decoration:none;
+    padding:12px 25px;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+.final{
+    margin-top:70px;
+    line-height:2;
+    color:white;
+}
+
+/* Fade */
+
+.page{
+    opacity:0;
+    transform:translateY(60px);
+    transition:1s;
+}
+
+.page.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@media(max-width:768px){
+
+    .book-cover h1{
+        font-size:2rem;
+    }
+
+    .page h1{
+        font-size:2rem;
+    }
+
+    .countdown div{
+        min-width:90px;
+    }
+}
