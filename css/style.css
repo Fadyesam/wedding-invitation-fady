@@ -20,7 +20,9 @@ body{
 #loader{
     position:fixed;
     inset:0;
-    background:#050816;
+    background:
+        linear-gradient(rgba(5,8,22,.9),rgba(5,8,22,.92)),
+        url("../assets/hero.jpg") center/cover;
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -33,6 +35,12 @@ body{
     color:#d4af37;
     margin-bottom:20px;
     text-align:center;
+    font-family:'Cinzel',serif;
+}
+
+#loader p{
+    color:#f2e7c7;
+    font-size:1.1rem;
 }
 
 #loader.hide{
@@ -75,12 +83,13 @@ body{
     top:20px;
     z-index:100;
     border:none;
-    padding:12px 18px;
+    padding:11px 16px;
     border-radius:30px;
     background:#d4af37;
     color:#000;
     cursor:pointer;
     font-weight:bold;
+    box-shadow:0 10px 24px rgba(0,0,0,.28);
 }
 
 /* Hero */
@@ -91,18 +100,36 @@ body{
     justify-content:center;
     align-items:center;
     padding:20px;
+    position:relative;
+    isolation:isolate;
+    background:url("../assets/hero.jpg") center/cover;
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(circle at center,rgba(5,8,22,.2),rgba(5,8,22,.68)),
+        linear-gradient(to bottom,rgba(5,8,22,.18),rgba(5,8,22,.9));
+    z-index:-1;
 }
 
 .book-cover{
     width:90%;
     max-width:700px;
-    background:rgba(255,255,255,.05);
-    border:2px solid #d4af37;
-    border-radius:30px;
-    padding:60px 30px;
+    background:rgba(5,8,22,.62);
+    border:1px solid rgba(212,175,55,.75);
+    border-radius:18px;
+    padding:56px 34px;
     text-align:center;
     backdrop-filter:blur(10px);
-    box-shadow:0 0 40px rgba(212,175,55,.2);
+    box-shadow:0 24px 70px rgba(0,0,0,.44);
+}
+
+.eyebrow{
+    color:#f2e7c7;
+    letter-spacing:0;
+    margin-bottom:16px;
 }
 
 .book-cover h1{
@@ -119,16 +146,33 @@ body{
 .book-cover h3{
     margin-top:40px;
     line-height:2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:4px;
+}
+
+.book-cover h3 span,
+.wedding h2 span{
+    color:#d4af37;
 }
 
 .book-cover p{
     margin-top:30px;
-    color:#ccc;
+    color:#eee1bd;
     line-height:2;
 }
 
-#openBook{
+.hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:14px;
     margin-top:40px;
+}
+
+#openBook,
+.hero-actions a{
     padding:15px 35px;
     border:none;
     background:#d4af37;
@@ -137,6 +181,14 @@ body{
     cursor:pointer;
     font-size:18px;
     font-weight:bold;
+    text-decoration:none;
+    line-height:1.2;
+}
+
+.hero-actions a{
+    background:rgba(255,255,255,.12);
+    color:#fff;
+    border:1px solid rgba(212,175,55,.55);
 }
 
 /* Book */
@@ -161,6 +213,14 @@ body{
     font-size:2.5rem;
 }
 
+.wedding h2{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    line-height:1.8;
+    font-size:1.6rem;
+}
+
 .page p{
     max-width:800px;
     line-height:2;
@@ -178,11 +238,12 @@ body{
 .images img,
 .gallery img,
 .main-image{
-    width:300px;
+    width:min(90vw,440px);
     max-width:90%;
-    border-radius:20px;
+    border-radius:14px;
     border:3px solid #d4af37;
     box-shadow:0 10px 30px rgba(0,0,0,.4);
+    height:auto;
 }
 
 .gallery{
@@ -190,6 +251,14 @@ body{
     gap:20px;
     flex-wrap:wrap;
     justify-content:center;
+}
+
+.main-image{
+    width:min(90vw,620px);
+}
+
+.gallery img{
+    width:min(88vw,340px);
 }
 
 .countdown{
@@ -214,13 +283,20 @@ body{
     color:#d4af37;
 }
 
+.countdown-done{
+    color:#d4af37;
+    font-size:1.8rem;
+    font-weight:700;
+    margin:40px 0;
+}
+
 .card{
     width:90%;
     max-width:700px;
     background:rgba(255,255,255,.05);
     margin:20px 0;
     padding:30px;
-    border-radius:25px;
+    border-radius:14px;
     border:1px solid rgba(212,175,55,.5);
 }
 
@@ -259,7 +335,36 @@ body{
     transform:translateY(0);
 }
 
+.floating-heart{
+    position:fixed;
+    top:100vh;
+    z-index:999;
+    color:#d4af37;
+    font-size:20px;
+    pointer-events:none;
+    animation:floatHeart 5.2s linear forwards;
+}
+
+@keyframes floatHeart{
+    to{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
+}
+
 @media(max-width:768px){
+
+    #musicBtn{
+        left:12px;
+        top:12px;
+        padding:10px 13px;
+        font-size:14px;
+    }
+
+    .book-cover{
+        width:94%;
+        padding:42px 20px;
+    }
 
     .book-cover h1{
         font-size:2rem;
@@ -271,5 +376,20 @@ body{
 
     .countdown div{
         min-width:90px;
+        padding:16px 12px;
+    }
+
+    .countdown span{
+        font-size:32px;
+    }
+
+    .hero-actions{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    #openBook,
+    .hero-actions a{
+        width:100%;
     }
 }

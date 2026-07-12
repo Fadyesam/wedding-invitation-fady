@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فادي ❤️ سيمون | Our Story</title>
+    <title>فادي وسيمون | Our Story</title>
 
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
 <div id="loader">
-    <h1>✨ Seven Years Until The Promise ✨</h1>
+    <h1>Seven Years Until The Promise</h1>
     <p>سبع سنوات حتى جاء الموعد</p>
 </div>
 
@@ -24,44 +25,55 @@
     <source src="assets/music.mp3" type="audio/mpeg">
 </audio>
 
-<button id="musicBtn">
-    🎵 تشغيل الموسيقى
+<button id="musicBtn" type="button" aria-label="تشغيل الموسيقى">
+    ♪ تشغيل الموسيقى
 </button>
 
 <section class="hero">
+    <div class="hero-overlay"></div>
 
     <div class="book-cover">
-        <h1>Our Story</h1>
-        <h2>قصتنا</h2>
+        <p class="eyebrow">دعوة فرح</p>
+        <h1>Fady & Simon</h1>
+        <h2>فادي وسيمون</h2>
 
         <h3>
-            Eng. Fady Esam<br>
-            ❤️<br>
-            Ms. Simon Masoud Shawky
+             فادي عصام صديق
+            <span>❤</span>
+             سيمون مسعود شوقي
         </h3>
 
         <p>
-            Seven Years Until The Promise
+            الاثنين 27 يوليو 2026
             <br>
             سبع سنوات حتى جاء الموعد
         </p>
 
-        <button id="openBook">
-            افتح الكتاب
-        </button>
-    </div>
+        <div class="hero-actions">
+            <button id="openBook" type="button">
+                افتح القصة
+            </button>
 
+            <a href="https://maps.app.goo.gl/6r6e7LeoMB2Z5JEL7" target="_blank" rel="noreferrer">
+                موقع الكنيسة
+            </a>
+
+            <a href="https://maps.app.goo.gl/Xb6NLjgbPCBx28347" target="_blank" rel="noreferrer">
+                موقع القاعة
+            </a>
+        </div>
+    </div>
 </section>
 
-<div id="book" class="hidden">
+<main id="book" class="hidden">
 
     <section class="page">
 
-        <h1>👶 البداية</h1>
+        <h1>البداية</h1>
 
         <div class="images">
-            <img src="assets/fady-child.jpg">
-            <img src="assets/simon-child.jpg">
+            <img src="assets/fady-child.jpg" alt="صورة فادي في الطفولة">
+            <img src="assets/simon-child.jpg" alt="صورة سيمون في الطفولة">
         </div>
 
         <p>
@@ -78,10 +90,9 @@
 
     <section class="page">
 
-        <h1>❤️ 2017</h1>
+        <h1>2017</h1>
 
-        <img class="main-image"
-             src="assets/school-love.jpg">
+        <img class="main-image" src="assets/school-love.jpg" alt="بداية قصة الحب في 2017">
 
         <p>
             هنا بدأت الحكاية...
@@ -92,10 +103,9 @@
 
     <section class="page">
 
-        <h1>🎓 2024</h1>
+        <h1>2024</h1>
 
-        <img class="main-image"
-             src="assets/graduation.jpg">
+        <img class="main-image" src="assets/graduation.jpg" alt="صورة التخرج">
 
         <p>
             الأول على الدفعة
@@ -113,10 +123,9 @@
 
     <section class="page">
 
-        <h1>💍 5 October 2024</h1>
+        <h1>5.10.2024</h1>
 
-        <img class="main-image"
-             src="assets/engagement.jpg">
+        <img class="main-image" src="assets/engagement.jpg" alt="صورة الخطوبة">
 
         <p>
             بعد سبع سنوات من الحب...
@@ -127,10 +136,9 @@
 
     <section class="page">
 
-        <h1>🪖 7 October 2024</h1>
+        <h1>7.10.2024</h1>
 
-        <img class="main-image"
-             src="assets/army.jpg">
+        <img class="main-image" src="assets/army.jpg" alt="مرحلة الجيش">
 
         <p>
             وأحيانًا...
@@ -141,10 +149,9 @@
 
     <section class="page">
 
-        <h1>🏅 7 July 2025</h1>
+        <h1>7.7.2025</h1>
 
-        <img class="main-image"
-             src="assets/ta-appointment.jpg">
+        <img class="main-image" src="assets/ta-appointment.jpg" alt="قرار التعيين معيدًا">
 
         <p>
             قرار التعيين معيدًا
@@ -156,10 +163,9 @@
 
     <section class="page">
 
-        <h1>💻 2 December 2025</h1>
+        <h1>2.12.2025</h1>
 
-        <img class="main-image"
-             src="assets/work.jpg">
+        <img class="main-image" src="assets/work.jpg" alt="بداية رحلة العمل">
 
         <p>
             ومن هنا بدأت رحلة بناء البيت...
@@ -169,27 +175,27 @@
 
     <section class="page">
 
-        <h1>📸 Our Memories</h1>
+        <h1>Our Memories</h1>
 
         <div class="gallery">
-            <img src="assets/couple-1.jpg">
-            <img src="assets/couple-2.jpg">
-            <img src="assets/couple-3.jpg">
+            <img src="assets/couple-1.jpg" alt="ذكرى لفادي وسيمون">
+            <img src="assets/couple-2.jpg" alt="صورة لفادي وسيمون">
+            <img src="assets/couple-3.jpg" alt="لحظة جميلة لفادي وسيمون">
         </div>
 
     </section>
 
     <section class="page wedding">
 
-        <h1>💍 27 • 07 • 2026</h1>
+        <h1>27.07.2026</h1>
 
         <h2>
-            م. فادي عصام صديق
-            ❤️
-            المعلمة / سيمون مسعود شوقي
+             فادي عصام صديق
+            <span>❤</span>
+             سيمون مسعود شوقي
         </h2>
 
-        <div class="countdown">
+        <div class="countdown" aria-live="polite">
 
             <div>
                 <span id="days">0</span>
@@ -213,30 +219,31 @@
 
         </div>
 
+        <p id="countdownDone" class="countdown-done hidden">
+            تمت فرحتنا بحضوركم
+        </p>
+
         <div class="card">
 
-            <h3>⛪ صلاة الإكليل</h3>
+            <h3>صلاة الإكليل</h3>
 
             <p>
                 الاثنين 27 يوليو 2026
                 <br>
                 الساعة السابعة مساءً
                 <br>
-                مطرانية أخميم
+            مطرانية الرسولان العظيمان بطرس وبولس بأخميم 
             </p>
 
-            <a
-              href="https://maps.app.goo.gl/6r6e7LeoMB2Z5JEL7"
-              target="_blank"
-            >
-                موقع الكنيسة
+            <a href="https://maps.app.goo.gl/6r6e7LeoMB2Z5JEL7" target="_blank" rel="noreferrer">
+                موقع المطرانية
             </a>
 
         </div>
 
         <div class="card">
 
-            <h3>🎉 حفل الاستقبال</h3>
+            <h3>حفل الزفاف</h3>
 
             <p>
                 قاعة سولتير
@@ -244,10 +251,7 @@
                 نادي القضاة - سوهاج
             </p>
 
-            <a
-              href="https://maps.app.goo.gl/Xb6NLjgbPCBx28347"
-              target="_blank"
-            >
+            <a href="https://maps.app.goo.gl/Xb6NLjgbPCBx28347" target="_blank" rel="noreferrer">
                 موقع القاعة
             </a>
 
@@ -261,12 +265,12 @@
             والعمل،
             والإيمان.
             <br><br>
-            وجودكم سيجعل فرحتنا تكتمل ❤️
+            وجودكم سيجعل فرحتنا تكتمل ❤
         </h3>
 
     </section>
 
-</div>
+</main>
 
 <script src="js/app.js"></script>
 

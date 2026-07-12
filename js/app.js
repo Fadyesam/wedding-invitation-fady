@@ -6,25 +6,29 @@ window.addEventListener("load", () => {
             .getElementById("loader")
             .classList
             .add("hide");
-    }, 2000);
+    }, 1400);
 });
 
 // Open Book
 
 document
     .getElementById("openBook")
-    .onclick = () => {
+    .onclick = async () => {
 
-    document
-        .getElementById("book")
+    const book =
+        document.getElementById("book");
+
+    book
         .classList
         .remove("hidden");
 
-    document
-        .getElementById("book")
+    book
         .scrollIntoView({
             behavior: "smooth"
         });
+
+    revealPages();
+    await playMusic();
 };
 
 // Music
@@ -37,25 +41,56 @@ const musicBtn =
 
 let playing = false;
 
-musicBtn.onclick = () => {
-
-    if (!playing) {
-        music.play();
-        musicBtn.innerHTML =
-            "🔇 إيقاف الموسيقى";
-    } else {
-        music.pause();
-        musicBtn.innerHTML =
-            "🎵 تشغيل الموسيقى";
+async function playMusic() {
+    if (playing) {
+        return;
     }
 
-    playing = !playing;
+    try {
+        await music.play();
+        musicBtn.innerHTML =
+            "■ إيقاف الموسيقى";
+        musicBtn.setAttribute("aria-label", "إيقاف الموسيقى");
+        playing = true;
+    } catch {
+        musicBtn.innerHTML =
+            "تعذر تشغيل الموسيقى";
+    }
+}
+
+function pauseMusic() {
+    music.pause();
+    musicBtn.innerHTML =
+        "♪ تشغيل الموسيقى";
+    musicBtn.setAttribute("aria-label", "تشغيل الموسيقى");
+    playing = false;
+}
+
+musicBtn.onclick = async () => {
+
+    if (!playing) {
+        await playMusic();
+        return;
+    }
+
+    pauseMusic();
 };
 
 // Countdown
 
 const weddingDate =
-    new Date("2026-07-27T19:00:00");
+    new Date("2026-07-27T19:00:00+03:00");
+
+const countdown =
+    document.querySelector(".countdown");
+
+const countdownDone =
+    document.getElementById("countdownDone");
+
+function setCountdownValue(id, value) {
+    document.getElementById(id).textContent =
+        String(value).padStart(2, "0");
+}
 
 function updateCountdown() {
 
@@ -63,6 +98,12 @@ function updateCountdown() {
 
     const diff =
         weddingDate - now;
+
+    if (diff <= 0) {
+        countdown.classList.add("hidden");
+        countdownDone.classList.remove("hidden");
+        return;
+    }
 
     const days =
         Math.floor(
@@ -88,17 +129,10 @@ function updateCountdown() {
             1000
         ) % 60;
 
-    document.getElementById("days")
-        .innerHTML = days;
-
-    document.getElementById("hours")
-        .innerHTML = hours;
-
-    document.getElementById("minutes")
-        .innerHTML = minutes;
-
-    document.getElementById("seconds")
-        .innerHTML = seconds;
+    setCountdownValue("days", days);
+    setCountdownValue("hours", hours);
+    setCountdownValue("minutes", minutes);
+    setCountdownValue("seconds", seconds);
 }
 
 updateCountdown();
@@ -114,6 +148,13 @@ const pages =
     document.querySelectorAll(".page");
 
 function revealPages() {
+
+    if (document
+        .getElementById("book")
+        .classList
+        .contains("hidden")) {
+        return;
+    }
 
     pages.forEach(page => {
 
@@ -144,44 +185,19 @@ setInterval(() => {
     const heart =
         document.createElement("div");
 
-    heart.innerHTML = "❤️";
-
-    heart.style.position =
-        "fixed";
+    heart.innerHTML = "❤";
+    heart.className = "floating-heart";
 
     heart.style.left =
         Math.random() * 100 +
         "vw";
 
-    heart.style.top =
-        "100vh";
-
-    heart.style.fontSize =
-        "20px";
-
-    heart.style.zIndex = 999;
-
     document.body.appendChild(
         heart
     );
 
-    let pos = 100;
-
-    const timer =
-        setInterval(() => {
-
-            pos--;
-
-            heart.style.top =
-                pos + "vh";
-
-            if (pos < -10) {
-
-                clearInterval(timer);
-
-                heart.remove();
-            }
-
-        }, 50);
+    setTimeout(() => {
+        heart.remove();
+    }, 5200);
 
 }, 3000);
