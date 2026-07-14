@@ -2,34 +2,13 @@
 
 window.addEventListener("load", () => {
     setTimeout(() => {
-        document
-            .getElementById("loader")
-            .classList
-            .add("hide");
+        const loader = document.getElementById("loader");
+
+        if (loader) {
+            loader.classList.add("hide");
+        }
     }, 1400);
 });
-
-// Open Book
-
-document
-    .getElementById("openBook")
-    .onclick = async () => {
-
-    const book =
-        document.getElementById("book");
-
-    book
-        .classList
-        .remove("hidden");
-
-    book
-        .scrollIntoView({
-            behavior: "smooth"
-        });
-
-    revealPages();
-    await playMusic();
-};
 
 // Music
 
@@ -42,39 +21,65 @@ const musicBtn =
 let playing = false;
 
 async function playMusic() {
-    if (playing) {
+    if (!music || !musicBtn || playing) {
         return;
     }
 
     try {
         await music.play();
-        musicBtn.innerHTML =
+        musicBtn.textContent =
             "■ إيقاف الموسيقى";
         musicBtn.setAttribute("aria-label", "إيقاف الموسيقى");
         playing = true;
     } catch {
-        musicBtn.innerHTML =
+        musicBtn.textContent =
             "تعذر تشغيل الموسيقى";
     }
 }
 
 function pauseMusic() {
+    if (!music || !musicBtn) {
+        return;
+    }
+
     music.pause();
-    musicBtn.innerHTML =
+    musicBtn.textContent =
         "♪ تشغيل الموسيقى";
     musicBtn.setAttribute("aria-label", "تشغيل الموسيقى");
     playing = false;
 }
 
-musicBtn.onclick = async () => {
+if (musicBtn) {
+    musicBtn.onclick = async () => {
+        if (!playing) {
+            await playMusic();
+            return;
+        }
 
-    if (!playing) {
+        pauseMusic();
+    };
+}
+
+// Open Book
+
+const openBookBtn =
+    document.getElementById("openBook");
+
+const book =
+    document.getElementById("book");
+
+if (openBookBtn && book) {
+    openBookBtn.onclick = async () => {
+        book.classList.remove("hidden");
+
+        book.scrollIntoView({
+            behavior: "smooth"
+        });
+
+        revealPages();
         await playMusic();
-        return;
-    }
-
-    pauseMusic();
-};
+    };
+}
 
 // Countdown
 
@@ -88,16 +93,21 @@ const countdownDone =
     document.getElementById("countdownDone");
 
 function setCountdownValue(id, value) {
-    document.getElementById(id).textContent =
-        String(value).padStart(2, "0");
+    const element = document.getElementById(id);
+
+    if (element) {
+        element.textContent =
+            String(value).padStart(2, "0");
+    }
 }
 
 function updateCountdown() {
+    if (!countdown || !countdownDone) {
+        return;
+    }
 
     const now = new Date();
-
-    const diff =
-        weddingDate - now;
+    const diff = weddingDate - now;
 
     if (diff <= 0) {
         countdown.classList.add("hidden");
@@ -148,24 +158,17 @@ const pages =
     document.querySelectorAll(".page");
 
 function revealPages() {
-
-    if (document
-        .getElementById("book")
-        .classList
-        .contains("hidden")) {
+    if (!book || book.classList.contains("hidden")) {
         return;
     }
 
     pages.forEach(page => {
-
         const top =
             page
-            .getBoundingClientRect()
-            .top;
+                .getBoundingClientRect()
+                .top;
 
-        if (top <
-            window.innerHeight - 100) {
-
+        if (top < window.innerHeight - 100) {
             page.classList.add("show");
         }
     });
@@ -178,26 +181,21 @@ window.addEventListener(
 
 revealPages();
 
-// Hearts Effect
+// Floating Stars
 
 setInterval(() => {
-
-    const heart =
+    const star =
         document.createElement("div");
 
-    heart.innerHTML = "❤";
-    heart.className = "floating-heart";
+    star.textContent = "✦";
+    star.className = "floating-heart";
 
-    heart.style.left =
-        Math.random() * 100 +
-        "vw";
+    star.style.left =
+        Math.random() * 100 + "vw";
 
-    document.body.appendChild(
-        heart
-    );
+    document.body.appendChild(star);
 
     setTimeout(() => {
-        heart.remove();
-    }, 5200);
-
-}, 3000);
+        star.remove();
+    }, 5000);
+}, 2500);
