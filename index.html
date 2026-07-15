@@ -13,7 +13,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -21,6 +21,25 @@
   <h1>بعض القصص تبدأ بلقاء...<br>أما قصتنا، فبدأت بحلم.</h1>
   <p>Some stories begin with a meeting...<br>Ours began with a dream.</p>
 </div>
+
+<section id="envelopeIntro" class="envelope-intro" aria-label="دعوة مختومة">
+  <div class="envelope-scene">
+    <div class="envelope">
+      <div class="envelope-letter">
+        <span class="letter-ornament">✦</span>
+        <span>Fady &amp; Simon</span>
+        <small>Wedding Invitation</small>
+      </div>
+      <div class="envelope-flap"></div>
+      <div class="envelope-front"></div>
+      <button class="wax-seal open-envelope-trigger" type="button" aria-label="افتح الدعوة من الختم">F<span>❤</span>S</button>
+    </div>
+    <button class="open-envelope open-envelope-trigger" type="button" aria-label="افتح الدعوة المختومة">
+      افتح الدعوة
+    </button>
+    <p class="envelope-hint">اضغط على الختم لفتح الرسالة</p>
+  </div>
+</section>
 
 <div id="stars"></div>
 
@@ -69,94 +88,113 @@
   <section class="page">
     <h1>البداية</h1>
 
-    <div class="images">
-      <img src="assets/fady-child.jpg" alt="صورة فادي في الطفولة">
-      <img src="assets/simon-child.jpg" alt="صورة سيمون في الطفولة">
+    <div class="story-timeline" aria-label="خط زمني لقصة فادي وسيمون">
+      <article class="timeline-item">
+        <span class="timeline-year">2017</span>
+        <div class="timeline-dot" aria-hidden="true">✦</div>
+        <div class="timeline-copy">
+          <h2>بداية الحكاية</h2>
+          <p>لم نكن نعلم أن أول لقاء سيصبح بداية قصة كتبها الله لنا منذ زمن.</p>
+        </div>
+      </article>
+
+      <article class="timeline-item">
+        <span class="timeline-year">2024</span>
+        <div class="timeline-dot" aria-hidden="true">❤</div>
+        <div class="timeline-copy">
+          <h2>وعدٌ أجمل</h2>
+          <p>بعد سنوات من الحب والصبر، بدأ الحلم الذي انتظرناه يقترب من أن يصبح حقيقة.</p>
+        </div>
+      </article>
+
+      <article class="timeline-item timeline-item--final">
+        <span class="timeline-year">2026</span>
+        <div class="timeline-dot" aria-hidden="true">✦</div>
+        <div class="timeline-copy">
+          <h2>يوم الوعد</h2>
+          <p>27 يوليو — نحتفل ببداية فصلنا الأجمل معكم.</p>
+        </div>
+      </article>
     </div>
 
-    <p>
-      لم نكن نعرف بعضنا...
-      لكن الله كان يكتب القصة منذ البداية.
-    </p>
+    <p class="countdown-intro">والآن لم يتبقَّ على لقائنا الأجمل سوى…</p>
+    <div class="countdown" aria-live="polite">
+      <div>
+        <span id="days">00</span>
+        <small>يوم</small>
+      </div>
 
-    <p>
-      We didn't know each other...
-      But God was already writing our story.
-    </p>
-  </section>
+      <div>
+        <span id="hours">00</span>
+        <small>ساعة</small>
+      </div>
 
-  <section class="page">
-    <h1>2017</h1>
+      <div>
+        <span id="minutes">00</span>
+        <small>دقيقة</small>
+      </div>
 
-    <img class="main-image" src="assets/school-love.png" alt="بداية قصة الحب">
+      <div>
+        <span id="seconds">00</span>
+        <small>ثانية</small>
+      </div>
+    </div>
 
-    <p>
-      لم نكن نعرف إلى أين ستأخذنا الأيام،
-      لكننا عرفنا شيئًا واحدًا...
-      أن قلوبنا اختارت أن تسير الطريق معًا.
-    </p>
-  </section>
-
-  <section class="page">
-    <h1>2024</h1>
-
-    <img class="main-image" src="assets/graduation.jpg" alt="صورة التخرج">
-
-    <p>
-      كانت سنة مميزة...
-      سنة اقتربت فيها الأحلام خطوة أخرى من الحقيقة.
+    <p id="countdownDone" class="countdown-done hidden">
+      تمت فرحتنا بحضوركم
     </p>
   </section>
 
-  <section class="page">
-    <h1>5.10.2024</h1>
+  <section class="page journey-page">
+    <p class="section-kicker"><span>حكايتنا</span>رحلةٌ كتبها الله فصلًا بعد فصل.</p>
+    <h1>رحلتنا حتى الوعد</h1>
+    <p class="journey-intro">لم تكن السنوات مجرد وقتٍ مرّ، بل كانت طريقًا علّمنا أن كل خطوة تقرّبنا من اليوم الذي نحلم به.</p>
 
-    <img class="main-image" src="assets/engagement.jpg" alt="صورة الخطوبة">
+    <div class="journey-steps">
+      <article class="journey-step journey-step--with-photo">
+        <img class="journey-marker" src="assets/school-love.png" alt="بداية الحكاية">
+        <div>
+          <span class="journey-card-date">2017</span>
+          <h2>أول الحكاية</h2>
+          <p>بدأت قصتنا ببساطة، ومع الأيام عرفنا أن قلوبنا اختارت أن تكمل الطريق معًا.</p>
+        </div>
+      </article>
 
-    <p>
-      بعد سبع سنوات من الحب...
-      بدأ الوعد.
-    </p>
-  </section>
+      <article class="journey-step">
+        <img class="journey-marker" src="assets/engagement.jpg" alt="ذكرى من رحلتنا">
+        <div>
+          <span class="journey-card-date">2024</span>
+          <h2>أحلام تقترب</h2>
+          <p>كان عامًا مليئًا بالإنجازات والخطوات التي جعلت الحلم يبدو أقرب من أي وقت مضى.</p>
+        </div>
+      </article>
 
-  <section class="page">
-    <h1>رحلة الصبر</h1>
+      <article class="journey-step">
+        <img class="journey-marker" src="assets/couple-2.JPG" alt="ذكرى من رحلتنا">
+        <div>
+          <span class="journey-card-date">5.10.2024</span>
+          <h2>بداية الوعد</h2>
+          <p>بعد سبع سنوات من الحب، جاء يوم الخطوبة ليمنح حكايتنا وعدًا جديدًا ومستقبلًا ننتظره معًا.</p>
+        </div>
+      </article>
 
-    <img class="main-image" src="assets/army.jpg" alt="مرحلة الجيش ورحلة الصبر">
+      <article class="journey-step">
+        <img class="journey-marker" src="assets/army.jpg" alt="ذكرى من رحلتنا">
+        <div>
+          <span class="journey-card-date">7.10.2024</span>
+          <h2>محطة انتظار وإيمان</h2>
+          <p>مررنا بفترة احتاجت صبرًا وثقة؛ فآمنا أن الله لا يؤخر الجميل إلا ليأتي في موعده الأجمل.</p>
+        </div>
+      </article>
 
-    <p>
-      وعندما ظننا أن الحلم اقترب...
-      بدأت رحلة أخرى.
-    </p>
-
-    <p>
-      رحلة من الصبر، والانتظار، والثقة بأن الله لا يؤخر شيئًا
-      إلا ليصنع شيئًا أجمل.
-    </p>
-  </section>
-
-  <section class="page">
-    <h1>بداية جديدة</h1>
-
-    <img class="main-image" src="assets/ta-appointment.jpg" alt="قرار التعيين">
-
-    <p>
-      وفي الوقت الذي بدا فيه الطريق طويلًا...
-      فتح الله بابًا جديدًا.
-    </p>
-
-    <p>
-      وأصبح الحلم أقرب من أي وقت مضى.
-    </p>
-  </section>
-
-  <section class="page">
-    <h1>Our Memories</h1>
-
-    <div class="gallery">
-      <img src="assets/couple-1.jpg" alt="ذكرى لفادي وسيمون">
-      <img src="assets/couple-2.JPG" alt="صورة لفادي وسيمون">
-      <img src="assets/couple-3.jpg" alt="لحظة جميلة لفادي وسيمون">
+      <article class="journey-step journey-step--last">
+        <img class="journey-marker" src="assets/couple-1.jpg" alt="ذكرى من رحلتنا">
+        <div>
+          <span class="journey-card-date">27.7.2026</span>
+          <h2>فصلنا الأجمل</h2>
+          <p>وبعد سبع سنوات من الانتظار، جاء اليوم الذي يصبح فيه الوعد حقيقة نحتفل بها مع أحب الناس إلى قلوبنا.</p>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -168,32 +206,7 @@
       <span>❤</span>
       سيمون مسعود شوقي
     </h2>
-
-    <div class="countdown" aria-live="polite">
-      <div>
-        <span id="days">00</span>
-        <small>Days</small>
-      </div>
-
-      <div>
-        <span id="hours">00</span>
-        <small>Hours</small>
-      </div>
-
-      <div>
-        <span id="minutes">00</span>
-        <small>Minutes</small>
-      </div>
-
-      <div>
-        <span id="seconds">00</span>
-        <small>Seconds</small>
-      </div>
-    </div>
-
-    <p id="countdownDone" class="countdown-done hidden">
-      تمت فرحتنا بحضوركم
-    </p>
+    <br>
 
     <div class="card">
       <h3>صلاة الإكليل</h3>
@@ -226,19 +239,17 @@
     </div>
 
     <h3 class="final">
-      لم تكن مجرد سبع سنوات...
-      <br>
-      بل سبع سنوات من الحب، والصبر، والعمل، والإيمان.
-      <br><br>
-      وجودكم سيجعل فرحتنا تكتمل ❤
-      <br><br>
-        <span class="verse">
+وبعد سبع سنوات من الحب والصبر... ندعوكم لتكونوا شهودًا على بداية عمرٍ جديد. ❤
+<br>
+سبع سنوات علّمتنا أن ما يكتبه الله في وقته... يأتي أجمل مما حلمنا به.
+<br>
+<span class="verse">
         «فَوَجَدْتُ مَنْ تُحِبُّهُ نَفْسِي»
     </span>
 
     <br>
 
-    (نشيد الأنشاد 3 : 4)
+   - نش 3 : 4 -
     </h3>
   </section>
 

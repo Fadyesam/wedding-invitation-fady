@@ -10,6 +10,27 @@ window.addEventListener("load", () => {
     }, 1400);
 });
 
+// Sealed invitation opening
+
+const envelopeIntro = document.getElementById("envelopeIntro");
+const envelopeTriggers = document.querySelectorAll(".open-envelope-trigger");
+
+if (envelopeIntro && envelopeTriggers.length) {
+    envelopeTriggers.forEach(trigger => {
+        trigger.onclick = () => {
+            if (envelopeIntro.classList.contains("is-opening")) {
+                return;
+            }
+
+        envelopeIntro.classList.add("is-opening");
+
+        setTimeout(() => {
+            envelopeIntro.classList.add("is-hidden");
+        }, 1500);
+        };
+    });
+}
+
 // Music
 
 const music =
